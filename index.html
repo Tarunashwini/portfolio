@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tarun Ashwini · DevOps Engineer</title>
+  <meta name="description"
+    content="Tarun Ashwini, DevOps Engineer. CI/CD, DevSecOps, Kubernetes, Terraform and observability across AWS and Azure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Kubernetes-style cluster status bar -->
+  <header class="statusbar" aria-label="Cluster status">
+    <div class="sb-inner">
+      <span class="sb-brand">ctx: <b>tarun-ashwini</b></span>
+      <span class="sb-item" id="sbHealth"><i class="led ok"></i>Status: <b id="sbStatus">Healthy</b></span>
+      <span class="sb-item">Pods: <b id="sbPods">0/0</b></span>
+      <span class="sb-item">Region: <b>Hyderabad</b></span>
+      <span class="sb-item">Uptime: <b>99.99%</b></span>
+      <span class="sb-item">Stage: <b id="sbStage">trigger</b></span>
+      <span class="sb-item sb-clock" id="sbClock">--:--:-- IST</span>
+      <nav class="sb-nav" aria-label="Sections">
+        <a href="#about">about</a>
+        <a href="#skills">skills</a>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#observe">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- The pipeline track -->
+  <div class="rail" aria-hidden="true">
+    <div class="rail-track"></div>
+    <div class="rail-fill" id="railFill"></div>
+    <div class="rail-stages" id="railStages"></div>
+    <div class="packet" id="packet"></div>
+    <div class="commit-node" id="commitNode"></div>
+  </div>
+  <div class="scanbeam" id="scanbeam" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ============ HERO: trigger ============ -->
+    <section class="hero" id="top" data-stage="trigger">
+      <div class="wrap">
+        <div class="terminal" id="terminal">
+          <div class="term-bar">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="term-title">ssh devops@portfolio · ~/tarun-ashwini</span>
+            <span class="term-branch">main</span>
+          </div>
+          <div class="term-body">
+            <div class="motd">
+              <p class="motd-last" id="motdLast">Last login from 10.0.0.1 on pts/0</p>
+              <h1 class="name">Tarun <span>Ashwini</span></h1>
+              <p class="role">DevOps Engineer. I build the path from <em>git push</em> to production and keep it
+                observable.</p>
+              <dl class="sysinfo">
+                <div>
+                  <dt>Experience</dt>
+                  <dd>3+ years</dd>
+                </div>
+                <div>
+                  <dt>Employer</dt>
+                  <dd>TECHWAVE Consulting</dd>
+                </div>
+                <div>
+                  <dt>Clouds</dt>
+                  <dd>AWS · Azure</dd>
+                </div>
+                <div>
+                  <dt>CI/CD</dt>
+                  <dd>GitLab · Azure DevOps · GitHub Actions</dd>
+                </div>
+                <div>
+                  <dt>Runtime</dt>
+                  <dd>Docker · Kubernetes · Helm</dd>
+                </div>
+                <div>
+                  <dt>Location</dt>
+                  <dd>India</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="term-log" id="termLog" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn primary" type="button" id="viewWork">View work <span aria-hidden="true">↓</span></button>
+          <a class="btn" href="#observe">Open an alert</a>
+          <a class="btn ghost" href="Tarun_Ashwini.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+          <span class="hero-hint">Scrolling runs the pipeline. Each section is a stage.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GATE 1 ============ -->
+    <div class="wrap">
+      <div class="gate" data-name="Lint &amp; Build" data-stage="build">
+        <div class="gate-row">
+          <span class="gate-no">stage 1/5</span>
+          <span class="gate-name">lint &amp; build</span>
+          <span class="gate-steps">yamllint .gitlab-ci.yml · docker build -t portfolio:v3.0 .</span>
+          <span class="gate-status">[QUEUED]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" data-stage="build">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">stage 1 · lint &amp; build</p>
+          <h2>About</h2>
+        </header>
+        <div class="about-grid">
+          <div class="prose">
+            <p class="lede">I design and run delivery pipelines end to end: CI/CD, DevSecOps gates, containers,
+              Kubernetes, infrastructure as code and observability on AWS and Azure.</p>
+            <p>At TECHWAVE Consulting I was the primary DevOps engineer on a data and application modernization program,
+              where I set up the GitLab repositories, pipelines, security scanning, containers, deployments and
+              monitoring from scratch. I built Azure DevOps pipelines and Azure infrastructure for an AI-powered banking
+              app, and I run GitHub Actions and AWS for a HIPAA-compliant healthcare platform.</p>
+            <p>I automate deployments for Angular, React, .NET, Python and Django applications. I also troubleshoot the
+              hard infrastructure problems and work with developers on 12-factor practices and cloud-native deployment
+              standards.</p>
+            <div class="award">
+              <span class="ref-tag">tag: best-performer</span>
+              <p><strong>Best Performer Award, TECHWAVE Consulting India.</strong> Recognized for proactive ownership,
+                rapid learning, problem-solving, decision-making and contribution to successful project delivery.</p>
+            </div>
+          </div>
+          <figure class="manifest">
+            <figcaption><span>tarun-ashwini.yaml</span><span class="dim">kubectl apply -f</span></figcaption>
+            <pre><span class="k">apiVersion</span>: <span class="s">people/v1</span>
+<span class="k">kind</span>: <span class="s">Engineer</span>
+<span class="k">metadata</span>:
+  <span class="k">name</span>: <span class="s">tarun-ashwini</span>
+  <span class="k">labels</span>:
+    <span class="k">role</span>: <span class="s">devops</span>
+    <span class="k">location</span>: <span class="s">india</span>
+<span class="k">spec</span>:
+  <span class="k">experience</span>: <span class="s">"3+ years"</span>
+  <span class="k">employer</span>: <span class="s">TECHWAVE Consulting India Pvt. Ltd.</span>
+  <span class="k">since</span>: <span class="n">2023-04</span>
+  <span class="k">clouds</span>: [<span class="s">aws</span>, <span class="s">azure</span>]
+  <span class="k">ci</span>: [<span class="s">gitlab-ci</span>, <span class="s">azure-devops</span>, <span class="s">github-actions</span>]
+  <span class="k">education</span>:
+    <span class="k">degree</span>: <span class="s">B.Tech, Information Technology</span>
+    <span class="k">school</span>: <span class="s">JB Institute of Engineering and Technology</span>
+    <span class="k">years</span>: <span class="n">2019-2023</span>
+    <span class="k">cgpa</span>: <span class="n">7.87</span>
+<span class="k">status</span>:
+  <span class="k">phase</span>: <span class="ok">Running</span>
+  <span class="k">award</span>: <span class="s">Best Performer</span></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GATE 2 ============ -->
+    <div class="wrap">
+      <div class="gate" data-name="Unit &amp; Integration Tests" data-stage="test">
+        <div class="gate-row">
+          <span class="gate-no">stage 2/5</span>
+          <span class="gate-name">unit &amp; integration tests</span>
+          <span class="gate-steps">pytest -q · sast · checkmarx scan --fail-on high</span>
+          <span class="gate-status">[QUEUED]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills" data-stage="test">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">stage 2 · unit &amp; integration tests</p>
+          <h2>Skills</h2>
+          <p class="sec-note"><code>kubectl get pods -A</code> <span id="podSummary"></span>. Hover or tap a pod to
+            scale it out and see what's inside. Use <em>Simulate chaos</em> to crash it and watch it heal.</p>
+        </header>
+        <div class="pools" id="pools"></div>
+      </div>
+    </section>
+
+    <!-- ============ GATE 3 ============ -->
+    <div class="wrap">
+      <div class="gate" data-name="Provision Infrastructure" data-stage="provision">
+        <div class="gate-row">
+          <span class="gate-no">stage 3/5</span>
+          <span class="gate-name">provision infrastructure</span>
+          <span class="gate-steps">terraform init · terraform plan -out=tfplan</span>
+          <span class="gate-status">[QUEUED]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience" data-stage="provision">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">stage 3 · provision infrastructure</p>
+          <h2>Experience</h2>
+          <p class="sec-note"><code>git log --graph --all</code>, newest first. Each engagement is a branch that merged
+            back into main. Hover a technology to cherry-pick every commit that used it.</p>
+        </header>
+        <div class="pick-bar" id="pickBar"><span class="pick-label">cherry-pick:</span></div>
+        <div class="exp-grid">
+          <div class="graph-wrap">
+            <svg class="graph-svg" id="graphSvg" aria-hidden="true"></svg>
+            <ol class="graph" id="graph"></ol>
+          </div>
+          <aside class="show" id="show" aria-live="polite"></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GATE 4 ============ -->
+    <div class="wrap">
+      <div class="gate" data-name="Production Deployment" data-stage="deploy">
+        <div class="gate-row">
+          <span class="gate-no">stage 4/5</span>
+          <span class="gate-name">production deployment</span>
+          <span class="gate-steps">helm upgrade --install portfolio · kubectl rollout status</span>
+          <span class="gate-status">[QUEUED]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" data-stage="deploy">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">stage 4 · production deployment</p>
+          <h2>Projects</h2>
+          <p class="sec-note">Each card arrives as a <code>terraform plan</code> and applies once it reaches the middle
+            of the screen. Hover a diagram to send traffic through it. Diagrams are simplified sketches of each stack,
+            not client code.</p>
+        </header>
+        <div class="projects" id="projectList"></div>
+      </div>
+    </section>
+
+    <!-- ============ GATE 5 ============ -->
+    <div class="wrap">
+      <div class="gate" data-name="Smoke Tests &amp; Monitoring" data-stage="monitor">
+        <div class="gate-row">
+          <span class="gate-no">stage 5/5</span>
+          <span class="gate-name">smoke tests &amp; monitoring</span>
+          <span class="gate-steps">curl -fsS /healthz · promtool check rules</span>
+          <span class="gate-status">[QUEUED]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ OBSERVABILITY + CONTACT ============ -->
+    <section class="section observe" id="observe" data-stage="monitor">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">stage 5 · observe</p>
+          <h2>Telemetry &amp; contact</h2>
+        </header>
+
+        <div class="dash">
+          <div class="panel p-tenure">
+            <div class="panel-t"><span>uptime in production</span><span class="dim">since Apr 2023</span></div>
+            <div class="big" id="tenure">3y 0m 0d</div>
+            <div class="sub mono" id="tenureClock">00:00:00</div>
+          </div>
+          <div class="panel p-gauge">
+            <div class="panel-t"><span>b.tech cgpa</span><span class="dim">/ 10</span></div>
+            <svg class="gauge" id="gauge" viewBox="0 0 200 128" role="img" aria-label="CGPA 7.87 out of 10"></svg>
+          </div>
+          <div class="panel p-live">
+            <div class="panel-t"><span>your session · interactions/s</span><span class="live-tag"><i></i>live</span>
+            </div>
+            <canvas id="spark" height="90" aria-label="Live chart of your interactions per second"></canvas>
+            <div class="sub mono"><span id="evNow">0</span>/s now · <span id="evTotal">0</span> total events</div>
+          </div>
+          <div class="panel">
+            <div class="panel-t"><span>ci/cd platforms</span></div>
+            <div class="big ok">3</div>
+            <div class="sub">GitLab CI/CD · Azure DevOps · GitHub Actions</div>
+          </div>
+          <div class="panel">
+            <div class="panel-t"><span>clouds in production</span></div>
+            <div class="big ok">2</div>
+            <div class="sub">AWS · Azure (incl. AKS & AI Foundry)</div>
+          </div>
+          <div class="panel">
+            <div class="panel-t"><span>environments per pipeline</span></div>
+            <div class="big ok">4</div>
+            <div class="sub">Dev → QA → UAT → Production</div>
+          </div>
+        </div>
+
+        <div class="ops-grid">
+          <div class="logwin">
+            <div class="term-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="term-title">tail -f /var/log/portfolio/visitor.log</span>
+            </div>
+            <div class="log" id="log" role="log" aria-label="Live log of your interactions"></div>
+          </div>
+
+          <form class="alert-form" id="alertForm" novalidate>
+            <div class="af-head">
+              <span>alertmanager · new alert</span>
+              <span class="af-state" id="afState">INACTIVE</span>
+            </div>
+            <div class="af-fields">
+              <label class="f"><span>alertname</span><input id="fAlert" name="alertname" value="LetsConnect"
+                  readonly></label>
+              <label class="f"><span>severity</span>
+                <select id="fSev" name="severity">
+                  <option value="critical">critical</option>
+                  <option value="high" selected>high</option>
+                  <option value="warning">warning</option>
+                  <option value="info">info</option>
+                </select>
+              </label>
+              <label class="f"><span>receiver</span>
+                <select id="fRecv" name="receiver">
+                  <option value="email" selected>email · opens Gmail</option>
+                  <option value="whatsapp">whatsapp · opens a chat</option>
+                </select>
+              </label>
+              <label class="f"><span>labels.from</span><input id="fName" name="name" autocomplete="name"
+                  placeholder="Your name" required></label>
+              <!-- <label class="f"><span>labels.reply_to (optional)</span><input id="fEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com"></label> -->
+              <label class="f wide"><span>annotations.message</span><textarea id="fMsg" name="message" rows="4"
+                  placeholder="Hi Tarun, we're hiring for a DevOps role…" required></textarea></label>
+            </div>
+            <div class="webhook" aria-hidden="true">
+              <span>alertmanager</span>
+              <span class="wire"><i id="whDot"></i></span>
+              <span id="whRecv">receiver: email</span>
+            </div>
+            <div class="af-foot">
+              <button class="btn primary" type="submit" id="fireBtn">Fire alert</button>
+              <p class="af-msg" id="afMsg" role="status"></p>
+            </div>
+          </form>
+        </div>
+
+        <div class="receivers">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tarun.aashwini@gmail.com"
+            target="_blank"><span>email</span>tarun.aashwini@gmail.com</a>
+          <a href="https://wa.me/917674012022?text=Hi%20Tarun%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect."
+            target="_blank" rel="noopener"><span>whatsapp</span>+91 76740 12022</a>
+          <a href="https://www.linkedin.com/in/tarun-ashwini-75b8b4195/" target="_blank"
+            rel="noopener"><span>linkedin</span>in/tarun-ashwini</a>
+          <a href="https://github.com/Tarunashwini" target="_blank" rel="noopener"><span>github</span>Tarunashwini</a>
+          <a href="Tarun_Ashwini.pdf" target="_blank" rel="noopener"><span>résumé</span>Tarun_Ashwini.pdf</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>© 2026 Tarun Ashwini</span>
+      <span class="mono dim">deployed from main@7c1e9a2 · Pipeline #3023 · all stages passed</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
